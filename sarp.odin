@@ -40,6 +40,7 @@ handleArgs := proc() -> (filepath: string, outputFormat: string) {
         "  window will close and the region will be printed out to STDOUT.\n",
         "  If you wish to cancel selection - press RMB and you can start selection again\n",
         "  after you start holding the LMB again.\n",
+        "  You can also hold the middle button to move the image around.\n",
         "  To quit without selecting anything press either ESCAPE or Q.",
       )
       os.exit(1)
