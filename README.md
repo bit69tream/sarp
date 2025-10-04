@@ -1,6 +1,11 @@
 # SARP
 **S**elect **A** **R**egion in a **P**icture
 
+I got annoyed by the fact that to crop a video I need to either use a
+full-fledged video editor or extract a frame from it and open it in some image
+editing program to use ffmpeg to crop it. So I made this tool to be a simple
+region selector to be used in scripts.
+
 # Building
 ```sh
 $ odin build . -o:speed
