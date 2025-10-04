@@ -6,6 +6,8 @@ full-fledged video editor or extract a frame from it and open it in some image
 editing program to use ffmpeg to crop it. So I made this tool to be a simple
 region selector to be used in scripts.
 
+See [[./ffcrop.sh]] for usage example.
+
 # Building
 ```sh
 $ odin build . -o:speed
