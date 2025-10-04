@@ -127,7 +127,7 @@ main :: proc() {
   // window is resized automatically by the window manager on startup
   r.SetWindowSize(file.width, file.height)
 
-  userZoom := f32(0)
+  userZoom := f32(1)
 
   selection := SelectionState.None
 
@@ -150,14 +150,14 @@ main :: proc() {
 
     wZoom := w / txw
     hZoom := h / txh
-    cam.zoom = math.min(wZoom, hZoom) + userZoom
+    cam.zoom = math.min(wZoom, hZoom) * userZoom
 
-    userZoom = math.clamp(userZoom + r.GetMouseWheelMove() * .5, 0, 10)
+    userZoom = math.clamp(userZoom + r.GetMouseWheelMove() * .05, 0, 10)
 
     if r.IsMouseButtonDown(.MIDDLE) {
       delta := r.GetMouseDelta()
       if r.Vector2Length(delta) >= 1 {
-        cam.target += delta * -1
+        cam.target += delta * -1 / userZoom
       }
     }
 
