@@ -69,6 +69,16 @@ handleArgs := proc() -> (filepath: string, outputFormat: string) {
   return
 }
 
+clampRect :: proc (a: r.Rectangle, screenSize: r.Vector2) -> (res: r.Rectangle) {
+  res = a
+  res.x = math.max(0, res.x)
+  res.y = math.max(0, res.y)
+  res.width = math.min(screenSize.x, res.width)
+  res.height = math.min(screenSize.x, res.height)
+
+  return res
+}
+
 fixRect :: proc(a: r.Rectangle) -> (b: r.Rectangle) {
   b = a
   if b.width < 0 {
@@ -210,7 +220,7 @@ main :: proc() {
       }
     }; r.EndDrawing()
   }
-  rect := fixRect(selectionRect)
+  rect := clampRect(fixRect(selectionRect), {f32(file.width), f32(file.height)})
 
   sb: strings.Builder
   defer strings.builder_destroy(&sb)
