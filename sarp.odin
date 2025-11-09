@@ -74,7 +74,7 @@ clampRect :: proc (a: r.Rectangle, screenSize: r.Vector2) -> (res: r.Rectangle) 
   res.x = math.max(0, res.x)
   res.y = math.max(0, res.y)
   res.width = math.min(screenSize.x, res.width)
-  res.height = math.min(screenSize.x, res.height)
+  res.height = math.min(screenSize.y, res.height)
 
   return res
 }
